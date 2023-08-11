@@ -2,10 +2,6 @@ import pandas as pd
 import psycopg2
 import datetime
 
-# ---VARIABLES---#
-Tiendas = ["BK", "LC", "CH", "PC", "PP", "CC", "CK", "DD", "BK-CALL",
-           "LC-CALL", "CH-CALL", "PC-CALL", "PP-CALL", "CC-CALL", "CK-CALL", "DD-CALL",]
-
 # ---FUNCIONES BASE---#
 
 # ---Convierte el Reporte de Excel en un dataframe---#
@@ -60,8 +56,7 @@ def Obtener_Tienda(orderId):
     else:
         orderFull = "0000" + str(orderId)
 
-    query = "SELECT cmbpa.username as Tienda FROM public.csm_prc_order cpo LEFT JOIN cs_mst_business_partner_address cmbpa ON cmbpa.id = CAST(cpo.provider AS INTEGER) WHERE cpo.code = '" + str(
-        orderFull) + "'"
+    query = "SELECT cmbpa.username as Tienda FROM public.csm_prc_order cpo LEFT JOIN cs_mst_business_partner_address cmbpa ON cmbpa.id = CAST(cpo.provider AS INTEGER) WHERE cpo.code = '" + str(orderFull) + "'"
 
     # ---obtener tienda segun orderId---#
     try:
@@ -141,8 +136,7 @@ else:
                 print(auth_Num + " / " + str(Order_id) + " / " + Tienda)
 
                 with open(Log, "a") as archivo:
-                    archivo.write(auth_Num + " / " +
-                                  str(Order_id) + " / " + Tienda + "\n")
+                    archivo.write(auth_Num + " / " + str(Order_id) + " / " + Tienda + "\n")
 
                 # ---Cambiar Tienda---#
                 df_Reporte.at[i, "RESTAURANTE"] = Tienda
