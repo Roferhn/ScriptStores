@@ -90,10 +90,10 @@ fecha_actual = datetime.datetime.today().strftime('%Y-%m-%d')
 Log = f"Tiendas_{fecha_actual}.txt"
 
 # ---DB data---#
-host = 'avecsm.cksl0gxfpv9j.us-east-2.rds.amazonaws.com'
-database = 'AVECSM'
-user = 'itintur'
-password = 'Intur#2021!'
+host = ''
+database = ''
+user = ''
+password = ''
 
 
 # ---Conectar a la DB---#
